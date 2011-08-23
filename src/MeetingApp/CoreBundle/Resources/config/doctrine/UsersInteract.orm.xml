@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MeetingApp\CoreBundle\Entity\UsersInteract" table="users_interact">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dtm" type="datetime" column="dtm"/>
+    <field name="usr1ip" type="string" column="usr1ip" length="20"/>
+    <field name="usr2ip" type="string" column="usr2ip" length="20"/>
+    <field name="usr1phonenum" type="string" column="usr1phonenum" length="25"/>
+    <field name="usr2phonenum" type="string" column="usr2phonenum" length="25"/>
+    <field name="usr1phonemodel" type="string" column="usr1phonemodel" length="150"/>
+    <field name="usr2phonemodel" type="string" column="usr2phonemodel" length="150"/>
+    <field name="usr1version" type="string" column="usr1version" length="20"/>
+    <field name="usr2version" type="string" column="usr2version" length="20"/>
+    <many-to-one field="intact" target-entity="Interaction" orphan-removal="">
+      <join-columns>
+        <join-column name="intact" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="usr1" target-entity="Users" orphan-removal="">
+      <join-columns>
+        <join-column name="usr1" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="usr2" target-entity="Users" orphan-removal="">
+      <join-columns>
+        <join-column name="usr2" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

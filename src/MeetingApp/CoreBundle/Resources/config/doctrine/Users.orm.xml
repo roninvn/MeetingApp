@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MeetingApp\CoreBundle\Entity\Users" table="users">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="username" type="string" column="username" length="12"/>
+    <field name="hashedpwd" type="string" column="hashedpwd" length="50"/>
+    <field name="firstname" type="string" column="firstname" length="50"/>
+    <field name="lastname" type="string" column="lastname" length="50"/>
+    <field name="email" type="string" column="email" length="50"/>
+    <field name="dob" type="datetime" column="dob"/>
+    <field name="gender" type="integer" column="gender"/>
+    <field name="profes" type="string" column="profes" length="150"/>
+    <field name="intro" type="text" column="intro"/>
+    <field name="phonenumber" type="string" column="phonenumber" length="20"/>
+    <field name="photolink" type="string" column="photolink" length="150"/>
+    <field name="fbname" type="string" column="fbname" length="50"/>
+    <field name="lkname" type="string" column="lkname" length="50"/>
+    <field name="lastactiontime" type="datetime" column="lastactiontime"/>
+    <field name="lastip" type="string" column="lastIP" length="20"/>
+    <many-to-one field="role" target-entity="UsersRole" orphan-removal="">
+      <join-columns>
+        <join-column name="role" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

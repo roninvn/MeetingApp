@@ -1,0 +1,7 @@
+MeetingAppCoreBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: MeetingAppCoreBundle:Default:index }
+    
+MeetingAppCoreBundle_GetAllRoles:
+    pattern:  /roles/getall
+    defaults: { _controller: MeetingAppCoreBundle:UsersRole:getAllRoles }
